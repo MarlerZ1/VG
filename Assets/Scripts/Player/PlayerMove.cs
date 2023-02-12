@@ -5,10 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
 {
-    //Убрать !
-    [SerializeField] private EnemyBase _enemyBase;
- 
-    
     private bool _canDash = true;
     private bool _isDashing = false;
    
@@ -25,14 +21,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     private void Awake()
     {
-        _inputSystem = new InputSystem();
+        _inputSystem = InputSystemSingleton.ISys;
         _inputSystem.Move.Dash.performed += context => Dash();
-        _inputSystem.Attack.TakeDamage.performed += context => GetDamage();
 
-        //Убрать !
-        _inputSystem.Attack.Finished.performed += context => _enemyBase.Finished();
-        
-        
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -44,13 +35,6 @@ public class PlayerMove : MonoBehaviour
     {
         _inputSystem.Disable();
     }
-    //Убрать !
-    private void GetDamage()
-    {
-        PlayerHP playerHP = GetComponent<PlayerHP>();
-        playerHP.TakeHit(10);
-    }
-
 
     private void MoveVertical()
     {

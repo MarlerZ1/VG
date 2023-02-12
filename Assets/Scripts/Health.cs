@@ -6,14 +6,39 @@ public class Health : MonoBehaviour
 {
     [SerializeField] protected int _maxHp;
     [SerializeField] protected int _currentHp;
+    [SerializeField] protected int _deathTime;
+    protected bool _isAlive = true;
+    protected bool _canFinished = false;
+
+    public bool CanFinished
+    {
+        get
+        {
+            return _canFinished;
+        }
+    }
+
+    public bool IsAlive
+    {
+        get
+        {
+            return _isAlive;
+        }
+    }
 
     virtual public void TakeHit(int damage)
     {
         _currentHp -= damage;
 
-        if (_currentHp < 0)
+        if (_currentHp <= 0)
         {
+            _isAlive = false;
             _currentHp = 0;
+        }
+
+        if ((float) _currentHp / _maxHp <= 0.25f)
+        {
+            _canFinished = true;
         }
     }
 
@@ -27,5 +52,8 @@ public class Health : MonoBehaviour
         }
     }
 
-    virtual public void Death(){}
+    virtual public void Death(){
+
+        Destroy(gameObject, _deathTime);
+    }
 }

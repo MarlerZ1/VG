@@ -5,6 +5,24 @@ using UnityEngine;
 public class EnemyHp : Health
 {
     [SerializeField] private int _restorePlayerHp;
+    [SerializeField] HpBarBehavior _hpBar;
+    /*    [SerializeField] private float _stunTime;
+        private bool _isStunned = false;*/
+    private bool _isHitStunned = false;
+
+    public bool IsHitStunned
+    {
+        get
+        {
+            return _isHitStunned;
+        }
+    }
+
+    private void Start()
+    {
+        _hpBar.SetHealth(_currentHp, _maxHp);
+    }
+
     public int RestorePlayerHp 
     { 
         get 
@@ -13,10 +31,27 @@ public class EnemyHp : Health
         }
         private set{}
     }
+
+    override public void TakeHit(int damage)
+    {
+        base.TakeHit(damage);
+        _hpBar.SetHealth(_currentHp, _maxHp);
+
+        StartCoroutine(IEHitStun());
+
+        if (!_isAlive)
+            Death();
+    }
+
     public void Finished()
     {
-        base.TakeHit(_currentHp);
+        TakeHit(_currentHp);
     }
-    //TODO:
-    // ENEMY HPBAR
+    
+    private IEnumerator IEHitStun()
+    {
+        _isHitStunned = true;
+        yield return new WaitForSeconds(0.2f);
+        _isHitStunned = false;
+    }
 }

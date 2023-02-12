@@ -73,7 +73,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -84,7 +84,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -106,7 +106,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Joystick>/stick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -117,7 +117,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Joystick>/stick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -139,7 +139,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -150,7 +150,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -172,7 +172,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Joystick>/stick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -183,7 +183,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Joystick>/stick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -194,7 +194,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""PC"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -205,7 +205,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Controller"",
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -217,15 +217,6 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
             ""id"": ""5f9fd364-29ff-4378-a518-ac570f126faa"",
             ""actions"": [
                 {
-                    ""name"": ""TakeDamage"",
-                    ""type"": ""Button"",
-                    ""id"": ""d3b56cfd-63f7-4110-acab-dbef9913a8d9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Finished"",
                     ""type"": ""Button"",
                     ""id"": ""63e526a2-16d3-4903-8041-e2fb9e8ae899"",
@@ -233,35 +224,103 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shot"",
+                    ""type"": ""Button"",
+                    ""id"": ""c53b77c7-2825-40e7-8d22-feb83e466e11"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AttackDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""bd83e2bd-6e88-40b0-b508-1dbb0b46e78d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""323d5b02-ff20-49d0-b373-54bc10b21f52"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""id"": ""0474a216-9c96-425d-9362-dba9f5be797a"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TakeDamage"",
+                    ""groups"": ""PC"",
+                    ""action"": ""Finished"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""0474a216-9c96-425d-9362-dba9f5be797a"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""59c61d0f-af30-48e4-9ea7-f92436b57838"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Finished"",
+                    ""groups"": ""PC"",
+                    ""action"": ""Shot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bac4b8a-59c6-4809-9cec-d874f1782d63"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""AttackDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78990acc-71e9-450f-ac35-ecad82570d3f"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""AttackDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""PC"",
+            ""bindingGroup"": ""PC"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Mouse>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                },
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Move
         m_Move = asset.FindActionMap("Move", throwIfNotFound: true);
@@ -270,8 +329,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         m_Move_Dash = m_Move.FindAction("Dash", throwIfNotFound: true);
         // Attack
         m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
-        m_Attack_TakeDamage = m_Attack.FindAction("TakeDamage", throwIfNotFound: true);
         m_Attack_Finished = m_Attack.FindAction("Finished", throwIfNotFound: true);
+        m_Attack_Shot = m_Attack.FindAction("Shot", throwIfNotFound: true);
+        m_Attack_AttackDirection = m_Attack.FindAction("AttackDirection", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -380,14 +440,16 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     // Attack
     private readonly InputActionMap m_Attack;
     private IAttackActions m_AttackActionsCallbackInterface;
-    private readonly InputAction m_Attack_TakeDamage;
     private readonly InputAction m_Attack_Finished;
+    private readonly InputAction m_Attack_Shot;
+    private readonly InputAction m_Attack_AttackDirection;
     public struct AttackActions
     {
         private @InputSystem m_Wrapper;
         public AttackActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
-        public InputAction @TakeDamage => m_Wrapper.m_Attack_TakeDamage;
         public InputAction @Finished => m_Wrapper.m_Attack_Finished;
+        public InputAction @Shot => m_Wrapper.m_Attack_Shot;
+        public InputAction @AttackDirection => m_Wrapper.m_Attack_AttackDirection;
         public InputActionMap Get() { return m_Wrapper.m_Attack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -397,26 +459,50 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_AttackActionsCallbackInterface != null)
             {
-                @TakeDamage.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnTakeDamage;
-                @TakeDamage.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnTakeDamage;
-                @TakeDamage.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnTakeDamage;
                 @Finished.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnFinished;
                 @Finished.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnFinished;
                 @Finished.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnFinished;
+                @Shot.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnShot;
+                @Shot.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnShot;
+                @Shot.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnShot;
+                @AttackDirection.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnAttackDirection;
+                @AttackDirection.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnAttackDirection;
+                @AttackDirection.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnAttackDirection;
             }
             m_Wrapper.m_AttackActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @TakeDamage.started += instance.OnTakeDamage;
-                @TakeDamage.performed += instance.OnTakeDamage;
-                @TakeDamage.canceled += instance.OnTakeDamage;
                 @Finished.started += instance.OnFinished;
                 @Finished.performed += instance.OnFinished;
                 @Finished.canceled += instance.OnFinished;
+                @Shot.started += instance.OnShot;
+                @Shot.performed += instance.OnShot;
+                @Shot.canceled += instance.OnShot;
+                @AttackDirection.started += instance.OnAttackDirection;
+                @AttackDirection.performed += instance.OnAttackDirection;
+                @AttackDirection.canceled += instance.OnAttackDirection;
             }
         }
     }
     public AttackActions @Attack => new AttackActions(this);
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
+    private int m_PCSchemeIndex = -1;
+    public InputControlScheme PCScheme
+    {
+        get
+        {
+            if (m_PCSchemeIndex == -1) m_PCSchemeIndex = asset.FindControlSchemeIndex("PC");
+            return asset.controlSchemes[m_PCSchemeIndex];
+        }
+    }
     public interface IMoveActions
     {
         void OnMoveVertical(InputAction.CallbackContext context);
@@ -425,7 +511,8 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     }
     public interface IAttackActions
     {
-        void OnTakeDamage(InputAction.CallbackContext context);
         void OnFinished(InputAction.CallbackContext context);
+        void OnShot(InputAction.CallbackContext context);
+        void OnAttackDirection(InputAction.CallbackContext context);
     }
 }

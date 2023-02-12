@@ -51,7 +51,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "MoveVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -62,7 +62,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "MoveVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -84,7 +84,7 @@
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "MoveVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -95,7 +95,7 @@
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "MoveVertical",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -117,7 +117,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -128,7 +128,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -150,7 +150,7 @@
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -161,7 +161,7 @@
                     "path": "<Joystick>/stick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "MoveHorizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -172,7 +172,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -183,7 +183,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -195,15 +195,6 @@
             "id": "5f9fd364-29ff-4378-a518-ac570f126faa",
             "actions": [
                 {
-                    "name": "TakeDamage",
-                    "type": "Button",
-                    "id": "d3b56cfd-63f7-4110-acab-dbef9913a8d9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Finished",
                     "type": "Button",
                     "id": "63e526a2-16d3-4903-8041-e2fb9e8ae899",
@@ -211,33 +202,101 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Shot",
+                    "type": "Button",
+                    "id": "c53b77c7-2825-40e7-8d22-feb83e466e11",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackDirection",
+                    "type": "Value",
+                    "id": "bd83e2bd-6e88-40b0-b508-1dbb0b46e78d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "323d5b02-ff20-49d0-b373-54bc10b21f52",
-                    "path": "<Keyboard>/q",
+                    "id": "0474a216-9c96-425d-9362-dba9f5be797a",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "TakeDamage",
+                    "groups": "PC",
+                    "action": "Finished",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "0474a216-9c96-425d-9362-dba9f5be797a",
-                    "path": "<Keyboard>/e",
+                    "id": "59c61d0f-af30-48e4-9ea7-f92436b57838",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Finished",
+                    "groups": "PC",
+                    "action": "Shot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1bac4b8a-59c6-4809-9cec-d874f1782d63",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "AttackDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78990acc-71e9-450f-ac35-ecad82570d3f",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "AttackDirection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "PC",
+            "bindingGroup": "PC",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
