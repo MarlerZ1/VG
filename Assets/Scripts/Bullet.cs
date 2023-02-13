@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject, 0);
             }
         }
-        else if (layerName != "Bullet")
+        else if (layerName != "Bullet" && layerName != "Location")
         {
             Destroy(gameObject, 0);
         }
