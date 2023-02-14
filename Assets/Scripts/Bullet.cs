@@ -31,7 +31,19 @@ public class Bullet : MonoBehaviour
             if (layerName != _personType.ToString() || layerName == "Destructible Environment")
             {
                 print(_personType.ToString() + " " + LayerMask.LayerToName(collision.gameObject.layer));
-                collision.gameObject.GetComponent<Health>().TakeHit(_damage);
+                switch (layerName)
+                {
+                    case "Player":
+                        collision.gameObject.GetComponent<PlayerHP>().TakeHit(_damage);
+                        break;
+                    case "Enemy":
+                        collision.gameObject.GetComponent<EnemyHp>().TakeHit(_damage);
+                        break;
+                    case "Destructible Environment":
+                        collision.gameObject.GetComponent<ObjectHp>().TakeHit(_damage);
+                        break;
+                }
+                
                 Destroy(gameObject, 0);
             }
         }
