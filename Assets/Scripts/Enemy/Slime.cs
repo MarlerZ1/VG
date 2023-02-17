@@ -22,13 +22,14 @@ public class Slime : EnemyBase
     private float _restringTime = 3f;
     private float _pursuitTime = 10f;
 
+    private Coroutine _ieLostPlayer = null;
     private void Start()
     {
         base.Start();
         _simpleMove = GetComponent<SimpleMove>();
         _sr = GetComponent<SpriteRenderer>();
         _patrol = GetComponent<Patrol>();
-     /*   _ieLostPlayer = IELostPlayer();*/
+        // _ieLostPlayer = StartCoroutine(IELostPlayer);
     }
 
     
@@ -124,25 +125,36 @@ public class Slime : EnemyBase
         _seePlayer = false;
     }
 
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-/*           StopCoroutine(IELostPlayer());*/
-
-            _isRestring = false;
-            _seePlayer = true;
+    public void DetectedPlayer(){
+        if (_ieLostPlayer != null){
+            StopCoroutine(_ieLostPlayer);
+            _ieLostPlayer = null;
         }
+            
+        _isRestring = false;
+        _seePlayer = true;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-           StartCoroutine(IELostPlayer());
-
-        }
+    public void LostPlayer(){
+        _ieLostPlayer = StartCoroutine(IELostPlayer());
     }
+//     private void OnTriggerEnter2D(Collider2D collision)
+//     {
+//         if (collision.gameObject.tag == "Player")
+//         {
+// /*           StopCoroutine(IELostPlayer());*/
+
+//             _isRestring = false;
+//             _seePlayer = true;
+//         }
+//     }
+
+//     private void OnTriggerExit2D(Collider2D collision)
+//     {
+//         if (collision.gameObject.tag == "Player")
+//         {
+//            StartCoroutine(IELostPlayer());
+
+//         }
+//     }
 }

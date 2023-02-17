@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHP : Health
 {
-    [SerializeField] Slider _slider;
+    [SerializeField] private Slider _slider;
 
     private void Awake()
     {

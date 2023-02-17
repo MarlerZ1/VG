@@ -6,9 +6,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private int _damage;
-    PersonType _personType;
+    private PersonType _personType;
     private float _speed = 10f;
-    Rigidbody2D _rb;
+    private Rigidbody2D _rb;
 
     private void Awake()
     {
@@ -30,20 +30,9 @@ public class Bullet : MonoBehaviour
         {
             if (layerName != _personType.ToString() || layerName == "Destructible Environment")
             {
-                print(_personType.ToString() + " " + LayerMask.LayerToName(collision.gameObject.layer));
-                switch (layerName)
-                {
-                    case "Player":
-                        collision.gameObject.GetComponent<PlayerHP>().TakeHit(_damage);
-                        break;
-                    case "Enemy":
-                        collision.gameObject.GetComponent<EnemyHp>().TakeHit(_damage);
-                        break;
-                    case "Destructible Environment":
-                        collision.gameObject.GetComponent<ObjectHp>().TakeHit(_damage);
-                        break;
-                }
-                
+
+                collision.gameObject.GetComponent<Health>().TakeHit(_damage);
+
                 Destroy(gameObject, 0);
             }
         }

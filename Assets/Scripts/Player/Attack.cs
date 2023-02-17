@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour
        
         if (!_isController)
         {
-            shotDirection = (Camera.main.ScreenToWorldPoint(_inputSystem.Attack.AttackDirection.ReadValue<Vector2>()) - new Vector3(transform.position.x, transform.position.y));
+            shotDirection = (Camera.main.ScreenToWorldPoint(_inputSystem.Attack.AttackDirection.ReadValue<Vector2>()) - new Vector3(transform.position.x, transform.position.y) - _offset);
             shotDirection = shotDirection.normalized;
 
             GameObject bullet = Instantiate(_bulletPref, transform.position + _offset, Quaternion.identity);
