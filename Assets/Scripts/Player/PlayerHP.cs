@@ -9,6 +9,7 @@ public class PlayerHP : Health
 
     private void Awake()
     {
+        base.Start();
         _slider.maxValue = _maxHp;
         _slider.value = _currentHp;
     }

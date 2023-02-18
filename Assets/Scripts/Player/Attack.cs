@@ -15,7 +15,9 @@ public class Attack : MonoBehaviour
 
     private void Awake()
     {
-        _inputSystem = InputSystemSingleton.ISys;
+        // _inputSystem = InputSystemSingleton.ISys;
+        _inputSystem = new InputSystem();
+        _inputSystem.Enable();
         _inputSystem.Attack.Finished.performed += context => _highlightedEnemy.Finished();
         _inputSystem.Attack.Shot.performed += context => Shot();
     }

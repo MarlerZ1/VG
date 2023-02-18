@@ -22,6 +22,7 @@ public class ObjectHp : Health
 
     private void Start()
     {
+        base.Start();
         _hpBar.SetHealth(_currentHp, _maxHp);
     }
 

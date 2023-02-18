@@ -21,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     private void Awake()
     {
-        _inputSystem = InputSystemSingleton.ISys;
+        _inputSystem = new InputSystem();
         _inputSystem.Move.Dash.performed += context => Dash();
 
         _rb = GetComponent<Rigidbody2D>();
