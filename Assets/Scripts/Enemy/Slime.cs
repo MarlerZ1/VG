@@ -16,8 +16,8 @@ public class Slime : EnemyBase
     private SpriteRenderer _sr;
     
     private bool _canAttack = true;
-    private bool _seePlayer = false;
-    private bool _isRestring = false;
+    /*private bool _seePlayer = false;
+    private bool _isRestring = false;*/
 
     private float _restringTime = 3f;
     private float _pursuitTime = 10f;
@@ -125,18 +125,19 @@ public class Slime : EnemyBase
         _seePlayer = false;
     }
 
-    public void DetectedPlayer(){
+    override public void DetectedPlayer(){
         if (_ieLostPlayer != null){
             StopCoroutine(_ieLostPlayer);
             _ieLostPlayer = null;
         }
-            
+        print("DetectedPlayer");
         _isRestring = false;
         _seePlayer = true;
     }
 
-    public void LostPlayer(){
-        _ieLostPlayer = StartCoroutine(IELostPlayer());
+    override public void LostPlayer(){
+        if (_ieLostPlayer == null)
+            _ieLostPlayer = StartCoroutine(IELostPlayer());
     }
 //     private void OnTriggerEnter2D(Collider2D collision)
 //     {

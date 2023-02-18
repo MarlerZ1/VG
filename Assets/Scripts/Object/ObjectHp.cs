@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectHp : Health
 {
     [SerializeField] private int _restorePlayerHp;
-    [SerializeField] private HpBarBehavior _hpBar;
     [SerializeField] private GameObject _destroyExplosionRef;
     [SerializeField] private Vector3 _offset;
     /*    [SerializeField] private float _stunTime;
@@ -20,11 +19,11 @@ public class ObjectHp : Health
             }
         }*/
 
-    private void Start()
+/*    private void Start()
     {
         base.Start();
-        _hpBar.SetHealth(_currentHp, _maxHp);
-    }
+   
+    }*/
 
     public int RestorePlayerHp
     {
@@ -38,7 +37,7 @@ public class ObjectHp : Health
     override public void TakeHit(int damage)
     {
         base.TakeHit(damage);
-        _hpBar.SetHealth(_currentHp, _maxHp);
+     /*   _hpBar.SetHealth(_currentHp, _maxHp);*/
         /*
                 StartCoroutine(IEHitStun());*/
 

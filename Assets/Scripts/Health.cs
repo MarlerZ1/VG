@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] protected int _currentHp;
     [SerializeField] protected int _deathTime;
 
-    // public event Action<float> OnHealthChanged;
-    
+    public event Action<float, int, int> OnHealthChanged;
+
     protected bool _isAlive = true;
     protected bool _canFinished = false;
     protected TemporaryDialogue _temporaryDialogue;
@@ -31,12 +32,13 @@ public class Health : MonoBehaviour
     }
     public void Start(){
         _temporaryDialogue = gameObject.GetComponent<TemporaryDialogue>();
+        OnHealthChanged?.Invoke(0, _currentHp, _maxHp);
     }
     virtual public void TakeHit(int damage)
     {
         _currentHp -= damage;
 
-        // OnHealthChanged?.Invoke(_currentHp);
+        OnHealthChanged?.Invoke(damage, _currentHp, _maxHp);
 
         // OnHealthChanged += Handler;
 

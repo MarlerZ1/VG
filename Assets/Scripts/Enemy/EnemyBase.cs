@@ -14,6 +14,9 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected int _attackDamageBase;
     [SerializeField] protected float _attackCooldownBase;
 
+    protected bool _seePlayer = false;
+    protected bool _isRestring = false;
+
     public void Start()
     {
         _enemyHp = GetComponent<EnemyHp>();
@@ -28,4 +31,7 @@ public class EnemyBase : MonoBehaviour
             _enemyHp.Finished();
         }
     }
+
+    virtual public void LostPlayer() { }
+    virtual public void DetectedPlayer() { }
 }

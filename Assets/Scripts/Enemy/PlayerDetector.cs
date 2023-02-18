@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    [SerializeField] private Slime _slime;
+    [SerializeField] private EnemyBase _enemy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            _slime.DetectedPlayer();
+            _enemy.DetectedPlayer();
         }
     }
 
@@ -18,7 +18,7 @@ public class PlayerDetector : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _slime.LostPlayer();
+            _enemy.LostPlayer();
         }
     }
 }

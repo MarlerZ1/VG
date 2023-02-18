@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyHp : Health
 {
     [SerializeField] private int _restorePlayerHp;
-    [SerializeField] HpBarBehavior _hpBar;
     /*    [SerializeField] private float _stunTime;
         private bool _isStunned = false;*/
     private bool _isHitStunned = false;
@@ -18,11 +17,11 @@ public class EnemyHp : Health
         }
     }
 
-    private void Start()
+ /*   private void Start()
     {
         base.Start();
         _hpBar.SetHealth(_currentHp, _maxHp);
-    }
+    }*/
 
     public int RestorePlayerHp 
     { 
@@ -36,8 +35,7 @@ public class EnemyHp : Health
     override public void TakeHit(int damage)
     {
         base.TakeHit(damage);
-        _hpBar.SetHealth(_currentHp, _maxHp);
-
+     
         StartCoroutine(IEHitStun());
 
         if (!_isAlive)

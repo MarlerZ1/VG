@@ -9,10 +9,18 @@ public class Bullet : MonoBehaviour
     private PersonType _personType;
     private float _speed = 10f;
     private Rigidbody2D _rb;
-
+    private int _lifeTime = 10;
+    private Coroutine _ieDestroy = null;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _ieDestroy = StartCoroutine(IEDestroy());
+    }
+
+    private void OnDestroy()
+    {
+        if (_ieDestroy != null)
+            StopCoroutine(_ieDestroy);
     }
 
     public void ParametersSetting(int dagame, PersonType personType, Vector2 shotDirection)
@@ -21,7 +29,11 @@ public class Bullet : MonoBehaviour
         _personType = personType;
         _rb.velocity = shotDirection * _speed;
     }
-
+    private IEnumerator IEDestroy()
+    {
+        yield return new WaitForSeconds(_lifeTime);
+        Destroy(gameObject);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string layerName = LayerMask.LayerToName(collision.gameObject.layer);
@@ -41,4 +53,5 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject, 0);
         }
     }
+
 }
