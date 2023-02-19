@@ -6,11 +6,17 @@ public class InteractionTerritoryDetecter : MonoBehaviour
 {
     [SerializeField] private Interaction _interaction;
     [SerializeField] private InteractionHandler _interactionHandler;
+    private bool _alreadyInteract = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            _interaction.OnInteract += _interactionHandler.Interaction;
+            if (!_alreadyInteract)
+            {
+                _interaction.OnInteract += _interactionHandler.Interaction;
+                _alreadyInteract = true;
+            }
         }
     }
 
@@ -18,7 +24,11 @@ public class InteractionTerritoryDetecter : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _interaction.OnInteract -= _interactionHandler.Interaction;
+            if (_alreadyInteract)
+            {
+                _interaction.OnInteract -= _interactionHandler.Interaction;
+                _alreadyInteract = false;
+            }
         }
     }
 }

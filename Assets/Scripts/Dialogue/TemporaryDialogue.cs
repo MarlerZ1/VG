@@ -9,7 +9,8 @@ using TMPro;
 public class TemporaryDialogue : MonoBehaviour
 {
     [SerializeField] private TextAsset _inkJsonAsset;
-    [SerializeField] private TMP_Text _textField;    
+    [SerializeField] private TMP_Text _textField;
+    [SerializeField] private GameObject _dialogue;
 
     [SerializeField] private int _showTime;
 
@@ -34,9 +35,9 @@ public class TemporaryDialogue : MonoBehaviour
 
     private IEnumerator IEFadeout()
     {
-        _textField.gameObject.SetActive(true);
+        _dialogue.gameObject.SetActive(true);
         yield return new WaitForSeconds(_showTime);
-        _textField.gameObject.SetActive(false);
+        _dialogue.gameObject.SetActive(false);
         _ieFadeout = null;
     }
 
