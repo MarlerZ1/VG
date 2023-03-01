@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class InputSystemSingleton : MonoBehaviour
 {
-    private static InputSystem _iSys;
+    private static InputSystem _inputSystem;
 
-    public static InputSystem ISys
+    public static InputSystem InputSystem
     {
         get
         {
-            if (_iSys == null)
+            if (_inputSystem == null)
             {
-                _iSys = new InputSystem();
+                _inputSystem = new InputSystem();
             }
-            return _iSys;
+            return _inputSystem;
         }
         private set { }
     }
 
+    private void OnEnable() {
+        InputSystem.Enable();
+    }
+
+    private void OnDisable() {
+        InputSystem.Disable();
+    }
 
 }

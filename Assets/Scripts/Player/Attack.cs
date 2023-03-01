@@ -10,16 +10,13 @@ public class Attack : MonoBehaviour
     [SerializeField] private Vector3 _offset;
     [SerializeField] private int _shotDamage;
 
-    private InputSystem _inputSystem;
     private bool _isController;
 
     private void Awake()
     {
-        // _inputSystem = InputSystemSingleton.ISys;
-        _inputSystem = new InputSystem();
-        _inputSystem.Enable();
-        _inputSystem.Attack.Finished.performed += context => _highlightedEnemy.Finished();
-        _inputSystem.Attack.Shot.performed += context => Shot();
+        // InputSystemSingleton.InputSystem = InputSystemSingleton.ISys;
+        InputSystemSingleton.InputSystem.Attack.Finished.performed += context => _highlightedEnemy.Finished();
+        InputSystemSingleton.InputSystem.Attack.Shot.performed += context => Shot();
     }
 
     private void Shot()
@@ -28,14 +25,14 @@ public class Attack : MonoBehaviour
        
         if (!_isController)
         {
-            shotDirection = (Camera.main.ScreenToWorldPoint(_inputSystem.Attack.AttackDirection.ReadValue<Vector2>()) - new Vector3(transform.position.x, transform.position.y) - _offset);
+            shotDirection = (Camera.main.ScreenToWorldPoint(InputSystemSingleton.InputSystem.Attack.AttackDirection.ReadValue<Vector2>()) - new Vector3(transform.position.x, transform.position.y) - _offset);
             shotDirection = shotDirection.normalized;
 
             GameObject bullet = Instantiate(_bulletPref, transform.position + _offset, Quaternion.identity);
             bullet.GetComponent<Bullet>().ParametersSetting(_shotDamage, PersonType.Player, shotDirection);
         } else
         {
-            shotDirection = _inputSystem.Attack.AttackDirection.ReadValue<Vector2>();
+            shotDirection = InputSystemSingleton.InputSystem.Attack.AttackDirection.ReadValue<Vector2>();
             shotDirection = shotDirection.normalized;
 
             GameObject bullet = Instantiate(_bulletPref, transform.position, Quaternion.identity);

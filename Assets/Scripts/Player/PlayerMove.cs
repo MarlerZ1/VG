@@ -10,7 +10,6 @@ public class PlayerMove : MonoBehaviour
    
 
     private Rigidbody2D _rb;
-    private InputSystem _inputSystem;
 
     [SerializeField] private float _dashingPower;
     [SerializeField] private float _dashingTime;
@@ -21,24 +20,44 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     private void Awake()
     {
-        _inputSystem = new InputSystem();
-        _inputSystem.Move.Dash.performed += context => Dash();
+        InputSystemSingleton.InputSystem.Move.Dash.performed += context => Dash();
 
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnEnable()
-    {
-        _inputSystem.Enable();
-    }
-    private void OnDisable()
-    {
-        _inputSystem.Disable();
-    }
+    // private void OnEnable()
+    // {
+    //     GameStateController.Instance.OnGameStateChanged += RecheckInputAvailability;
+    // }
+    // private void OnDisable()
+    // {
+    //     GameStateController.Instance.OnGameStateChanged -= RecheckInputAvailability;
+    // }
+
+    // private void RecheckInputAvailability(GameStateController.GameState newState) {
+    //     switch (newState)
+    //     {
+    //         case GameStateController.GameState.Normal:
+    //         {
+    //             InputSystemSingleton.InputSystem.Enable();
+    //             break;
+    //         }
+    //         case GameStateController.GameState.Pause:
+    //         {
+    //             InputSystemSingleton.InputSystem.Disable();
+    //             break;
+    //         }
+    //         default:
+    //         {
+    //             break;
+    //         }
+    //     }
+    // }
+
 
     private void MoveVertical()
     {
-        float moveDirection = _inputSystem.Move.MoveVertical.ReadValue<float>();
+        float moveDirection = InputSystemSingleton.InputSystem.Move.MoveVertical.ReadValue<float>();
         if (!_isDashing)
         {
             _playerAnimator.SetFloat("VerticalMove", moveDirection);
@@ -48,7 +67,7 @@ public class PlayerMove : MonoBehaviour
 
     private void MoveHorizontal()
     {
-        float moveDirection = _inputSystem.Move.MoveHorizontal.ReadValue<float>();
+        float moveDirection = InputSystemSingleton.InputSystem.Move.MoveHorizontal.ReadValue<float>();
         if (!_isDashing)
         {
             _playerAnimator.SetFloat("HorizontalMove", moveDirection);
@@ -60,8 +79,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (_canDash)
         {
-            float dashHorizontalDirection = _inputSystem.Move.MoveHorizontal.ReadValue<float>();
-            float dashVerticalDirection = _inputSystem.Move.MoveVertical.ReadValue<float>();
+            float dashHorizontalDirection = InputSystemSingleton.InputSystem.Move.MoveHorizontal.ReadValue<float>();
+            float dashVerticalDirection = InputSystemSingleton.InputSystem.Move.MoveVertical.ReadValue<float>();
             StartCoroutine(IEDash(dashHorizontalDirection, dashVerticalDirection));
         }
     }
