@@ -15,6 +15,9 @@ public class TalkInteraction : InteractionHandler
     [SerializeField] private VerticalLayoutGroup _choiceButtonContainer;
     [SerializeField] private Button _choiceBtnPref;
 
+    [SerializeField] private Color _normalTextColor;
+    [SerializeField] private Color _thoughtTextColor;
+
     private Story _story;
 
 
@@ -47,6 +50,7 @@ public class TalkInteraction : InteractionHandler
             string text = _story.Continue(); // gets next line
             text = text?.Trim(); // removes white space from text
             _textField.text = text; // displays new text
+            ApplyStyling();
         } 
         else if (_story.currentChoices.Count > 0){
             DisplayChoices();
@@ -94,6 +98,21 @@ public class TalkInteraction : InteractionHandler
             {
                 Destroy(button.gameObject);
             }
+        }
+    }
+
+
+    private void ApplyStyling()
+    {
+        if (_story.currentTags.Contains("thought"))
+        {
+            _textField.color = _thoughtTextColor;
+            _textField.fontStyle = FontStyles.Italic;
+        }
+        else
+        {
+            _textField.color = _normalTextColor;
+            _textField.fontStyle = FontStyles.Normal;
         }
     }
 }
