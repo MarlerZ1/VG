@@ -1169,6 +1169,8 @@ MonoBehaviour:
   _inkJsonAsset: {fileID: 4900000, guid: 4e9fcbae3687add44b6540309f7716d5, type: 3}
   _textField: {fileID: 8638016023347765485}
   _dialogue: {fileID: 8638016022984451023}
+  _choiceButtonContainer: {fileID: 1151522493}
+  _choiceBtnPref: {fileID: 4541866998826635630, guid: d750a86e85fb22e4e94403526561bc7b, type: 3}
 --- !u!1 &652272755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2338,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1151522493 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1151522493, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
+  m_PrefabInstance: {fileID: 3643745483308447380}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1224517613
 GameObject:
   m_ObjectHideFlags: 0
@@ -44949,58 +44962,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871697991, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_margin.w
-      value: 30.58014
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_margin.x
-      value: -4.192688
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_margin.y
-      value: -4.1324463
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_margin.z
-      value: 0.6802674
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863092871698041, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5003863093060982107, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5003863094187127017, guid: 52601a9e0045fc74099b3c4b3351c712, type: 3}
       propertyPath: m_Name
       value: MainDialogueCanvas

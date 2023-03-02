@@ -2,6 +2,7 @@ using Ink.Runtime;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TalkInteraction : InteractionHandler
 {
@@ -11,6 +12,8 @@ public class TalkInteraction : InteractionHandler
     [SerializeField] private TextAsset _inkJsonAsset;
     [SerializeField] private TMP_Text _textField;
     [SerializeField] private GameObject _dialogue;
+    [SerializeField] private VerticalLayoutGroup _choiceButtonContainer;
+    [SerializeField] private Button _choiceBtnPref;
 
     private Story _story;
 
@@ -30,7 +33,7 @@ public class TalkInteraction : InteractionHandler
 
     private void DisplayNextLine()
     {
-        if (!_story.canContinue)
+        if (!_story.canContinue && _story.currentChoices.Count == 0)
         {
           //  OnDialogueStop?.Invoke();
             _dialogue.gameObject.SetActive(false);
@@ -39,8 +42,58 @@ public class TalkInteraction : InteractionHandler
             return;
         }
 
-        string text = _story.Continue(); // gets next line
-        text = text?.Trim(); // removes white space from text
-        _textField.text = text; // displays new text
+        if (_story.canContinue)
+        {
+            string text = _story.Continue(); // gets next line
+            text = text?.Trim(); // removes white space from text
+            _textField.text = text; // displays new text
+        } 
+        else if (_story.currentChoices.Count > 0){
+            DisplayChoices();
+        }
+    }
+
+    private void DisplayChoices()
+    {
+        // checks if choices are already being displaye
+        if (_choiceButtonContainer.GetComponentsInChildren<Button>().Length > 0) return;
+
+        for (int i = 0; i < _story.currentChoices.Count; i++) // iterates through all choices
+        {
+
+            var choice = _story.currentChoices[i];
+            var button = CreateChoiceButton(choice.text); // creates a choice button
+
+            button.onClick.AddListener(() => OnClickChoiceButton(choice));
+        }
+    }
+
+    Button CreateChoiceButton(string text)
+    {
+        // creates the button from a prefab
+        var choiceButton = Instantiate(_choiceBtnPref);
+        choiceButton.transform.SetParent(_choiceButtonContainer.transform, false);
+        
+        // sets text on the button
+        var buttonText = choiceButton.GetComponentInChildren<TMP_Text>();
+        buttonText.text = text;
+
+        return choiceButton;
+    }
+    void OnClickChoiceButton(Choice choice)
+    {
+        _story.ChooseChoiceIndex(choice.index); // tells ink which choice was selected
+        RefreshChoiceView(); // removes choices from the screen
+        DisplayNextLine();
+    }
+    void RefreshChoiceView()
+    {
+        if (_choiceButtonContainer != null)
+        {
+            foreach (var button in _choiceButtonContainer.GetComponentsInChildren<Button>())
+            {
+                Destroy(button.gameObject);
+            }
+        }
     }
 }
