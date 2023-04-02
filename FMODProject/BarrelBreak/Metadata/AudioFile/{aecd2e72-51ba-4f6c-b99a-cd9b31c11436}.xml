@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{aecd2e72-51ba-4f6c-b99a-cd9b31c11436}">
+		<property name="assetPath">
+			<value>Anvil2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.98682539682539683</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8e6309ef-47b2-43cb-b2d7-5b48a029b89a}</destination>
+		</relationship>
+	</object>
+</objects>

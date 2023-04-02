@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fc02d332-2dd6-4b96-8b75-bb5a3dcdccd4}">
+		<property name="assetPath">
+			<value>270588__michorvath__anvil-hit-2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1.3714285714285714</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8e6309ef-47b2-43cb-b2d7-5b48a029b89a}</destination>
+		</relationship>
+	</object>
+</objects>

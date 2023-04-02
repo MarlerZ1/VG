@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b6c34031-18e8-4530-a2a7-2f800d35c262}">
+		<property name="assetPath">
+			<value>333608__blevesque4__anvil.aiff</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.66405895691609973</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8e6309ef-47b2-43cb-b2d7-5b48a029b89a}</destination>
+		</relationship>
+	</object>
+</objects>
