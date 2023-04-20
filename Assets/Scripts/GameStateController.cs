@@ -42,16 +42,18 @@ public class GameStateController : MonoBehaviour
             case GameState.Normal:
                 InputSystemSingleton.InputSystem.Move.Enable();      //          InputSystemSingleton.InputSystem.Move.Enable();
                 InputSystemSingleton.InputSystem.Attack.Enable();
-
+                Time.timeScale = 1f;
                 break;
             case GameState.Dialogue:
                 InputSystemSingleton.InputSystem.Move.Disable();
                 InputSystemSingleton.InputSystem.Attack.Disable();
-
+                Time.timeScale = 1f;
                 break;
             case GameState.Pause:
-            
-            break;
+                InputSystemSingleton.InputSystem.Move.Disable();
+                InputSystemSingleton.InputSystem.Attack.Disable();
+                Time.timeScale = 0f;
+                break;
         }
 
         OnGameStateChanged?.Invoke(newState);

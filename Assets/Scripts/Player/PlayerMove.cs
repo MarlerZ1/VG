@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
@@ -20,9 +21,15 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     private void Awake()
     {
-        InputSystemSingleton.InputSystem.Move.Dash.performed += context => Dash();
-
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable() {
+        InputSystemSingleton.InputSystem.Move.Dash.performed += Dash;
+    }
+
+    private void OnDisable() {
+        InputSystemSingleton.InputSystem.Move.Dash.performed -= Dash;
     }
 
     // private void OnEnable()
@@ -75,12 +82,16 @@ public class PlayerMove : MonoBehaviour
         }
     }
     
-    private void Dash()
+    private void Dash(InputAction.CallbackContext context)
     {
         if (_canDash)
         {
             float dashHorizontalDirection = InputSystemSingleton.InputSystem.Move.MoveHorizontal.ReadValue<float>();
             float dashVerticalDirection = InputSystemSingleton.InputSystem.Move.MoveVertical.ReadValue<float>();
+
+
+            Debug.Log("dfgdfg");
+
             StartCoroutine(IEDash(dashHorizontalDirection, dashVerticalDirection));
         }
     }
