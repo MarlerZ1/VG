@@ -42,11 +42,38 @@ MonoBehaviour:
   Path: FMODProject/BarrelBreak/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638157765075414299
+  lastModified: 638179430061021293
   FileSizes:
   - Name: Desktop
-    Value: 860
+    Value: 904
   Exists: 1
+--- !u!114 &-7105712977198841614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MenuBackground
+  m_EditorClassIdentifier: 
+  Path: event:/MenuBackground
+  Guid:
+    Data1: 970655580
+    Data2: 1187924804
+    Data3: 889618101
+    Data4: -105972717
+  Banks:
+  - {fileID: -5289558544251967667}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 98184
 --- !u!114 &-5289558544251967667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +89,10 @@ MonoBehaviour:
   Path: FMODProject/BarrelBreak/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638157765075404297
+  lastModified: 638179430061000118
   FileSizes:
   - Name: Desktop
-    Value: 41696
+    Value: 1395840
   Exists: 1
 --- !u!114 &-1815616853794068789
 MonoBehaviour:
@@ -82,7 +109,7 @@ MonoBehaviour:
   Path: FMODProject/BarrelBreak/Build/Desktop/Effects.bank
   Name: Effects
   StudioPath: bank:/Effects
-  lastModified: 638157765074704220
+  lastModified: 638179430060513985
   FileSizes:
   - Name: Desktop
     Value: 494
@@ -106,12 +133,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 6486368555004462113}
   - {fileID: -8899683170416879650}
+  - {fileID: -7105712977198841614}
   EditorParameters: []
   MasterBanks:
   - {fileID: -5289558544251967667}
   StringsBanks:
   - {fileID: -7742027681150869153}
-  cacheTime: 638157765075414299
+  cacheTime: 638179430061021293
   cacheVersion: 131601
 --- !u!114 &6486368555004462113
 MonoBehaviour:
